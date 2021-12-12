@@ -33,14 +33,14 @@ namespace GB.AlgorithmsAndDataStructures.Lesson1
         /// </summary>
         /// <param порядковый номер элемента="_counter"></param>
         /// <returns></returns>
-        public static int GetFibonacciNumber(int _counter)
+        public static int GetFibonacciNumber(int counter)
         {
             int result;
-            if (_counter == 0)
+            if (counter == 0)
             {
                 result = 0;
             }
-            else if (_counter == 1)
+            else if (counter == 1)
             {
                 result = 1;
             }
@@ -50,7 +50,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson1
                 int previousNumber = 0;
                 int nextNumber = 0;
 
-                for (int i = 2; i <= _counter; i++)
+                for (int i = 2; i <= counter; i++)
                 {
                     nextNumber = currentNumber + previousNumber;
                     previousNumber = currentNumber;
@@ -67,21 +67,21 @@ namespace GB.AlgorithmsAndDataStructures.Lesson1
         /// </summary>
         /// <param порядковый номер элемента="_counter"></param>
         /// <returns></returns>
-        public static int GetFibonacciNumberRecursion(int _counter)
+        public static int GetFibonacciNumberRecursion(int counter)
         {
 
             int result;
-            if (_counter == 0)
+            if (counter == 0)
             {
                 result = 0;
             }
-            else if (_counter == 1)
+            else if (counter == 1)
             {
                 result = 1;
             }
             else
             {
-                result = GetFibonacciNumberRecursion(_counter - 2) + GetFibonacciNumberRecursion(_counter - 1);
+                result = GetFibonacciNumberRecursion(counter - 2) + GetFibonacciNumberRecursion(counter - 1);
             }
             return result;
         }

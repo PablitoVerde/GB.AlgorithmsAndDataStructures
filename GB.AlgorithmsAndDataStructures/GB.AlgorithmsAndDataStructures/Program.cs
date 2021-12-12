@@ -5,11 +5,12 @@ namespace GB.AlgorithmsAndDataStructures
 {
     class Program
     {
-       static List<ILesson> lessons = new List<ILesson>()
+        static List<ILesson> lessons = new List<ILesson>()
         {
             new Lesson1.Task1(),
             new Lesson1.Task2(),
-            new Lesson1.Task3()
+            new Lesson1.Task3(),
+            new Lesson2.Task1()
         };
 
         static void Main()
@@ -17,7 +18,7 @@ namespace GB.AlgorithmsAndDataStructures
 
             Console.WriteLine("Для запуска задания, укажите его название.");
 
-            foreach(ILesson l in lessons)
+            foreach (ILesson l in lessons)
             {
                 Console.WriteLine($"{l.Name} {l.Description}");
             }
@@ -26,7 +27,7 @@ namespace GB.AlgorithmsAndDataStructures
 
             foreach (ILesson l in lessons)
             {
-                if (userCommand==l.Name)
+                if (userCommand.ToUpper() == l.Name.ToUpper())
                 {
                     l.Demo();
                     break;
