@@ -19,7 +19,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson1
 
         public string Description => "Проверка чисел на простые или непростые.";
 
-        static void Demo()
+        public void Demo()
         {
             int i = 6;
             IsSimple(i);
@@ -66,13 +66,13 @@ namespace GB.AlgorithmsAndDataStructures.Lesson1
         /// Метод проверки число на количество делителей. Если их 2 (1 и само число) - число простое. В обратном случае - непростое.
         /// </summary>
         /// <param Число для проверки="_number"></param>
-        static void IsSimple(int _number)
+        static void IsSimple(int number)
         {
             int d = 0;
 
-            for (int i = 2; i < _number; i++)
+            for (int i = 2; i < number; i++)
             {
-                if (_number % i == 0)
+                if (number % i == 0)
                 {
                     d++;
                 }
@@ -80,19 +80,14 @@ namespace GB.AlgorithmsAndDataStructures.Lesson1
 
             if (d == 0)
             {
-                Console.WriteLine($"Число {_number} простое.");
+                Console.WriteLine($"Число {number} простое.");
             }
             else
             {
-                Console.WriteLine($"Число {_number} непростое.");
+                Console.WriteLine($"Число {number} непростое.");
             }
 
             Console.ReadKey();
-        }
-
-        void ILesson.Demo()
-        {
-            throw new NotImplementedException();
         }
     }
 }
