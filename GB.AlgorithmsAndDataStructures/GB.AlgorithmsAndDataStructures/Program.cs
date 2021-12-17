@@ -15,7 +15,7 @@ namespace GB.AlgorithmsAndDataStructures
         };
 
         static void Main()
-        {
+        {           
 
             Console.WriteLine("Для запуска задания, укажите его название.");
 
