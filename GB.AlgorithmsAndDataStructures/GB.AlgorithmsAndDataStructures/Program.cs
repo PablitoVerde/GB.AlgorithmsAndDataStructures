@@ -12,7 +12,8 @@ namespace GB.AlgorithmsAndDataStructures
             new Lesson1.Task3(),
             new Lesson2.Task1(),
             new Lesson3.Task1(),
-            new Lesson4.Task1()
+            new Lesson4.Task1(),
+            new Lesson5.Task1()
         };
 
         static void Main()
