@@ -11,11 +11,12 @@ namespace GB.AlgorithmsAndDataStructures
             new Lesson1.Task2(),
             new Lesson1.Task3(),
             new Lesson2.Task1(),
-            new Lesson3.Task1()
+            new Lesson3.Task1(),
+            new Lesson4.Task1()
         };
 
         static void Main()
-        {
+        {           
 
             Console.WriteLine("Для запуска задания, укажите его название.");
 
