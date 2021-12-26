@@ -1,22 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Text;
 
 namespace GB.AlgorithmsAndDataStructures
 {
     class Program
     {
-        static List<ILesson> lessons = new List<ILesson>()
-        {
-            new Lesson1.Task1(),
-            new Lesson1.Task2(),
-            new Lesson1.Task3(),
-            new Lesson2.Task1(),
-            new Lesson3.Task1(),
-            new Lesson4.Task1()
-        };
-
         static void Main()
-        {           
+        {
+
+            List<ILesson> lessons = Lesson6.UserOptions.LoadTasks();
 
             Console.WriteLine("Для запуска задания, укажите его название.");
 
