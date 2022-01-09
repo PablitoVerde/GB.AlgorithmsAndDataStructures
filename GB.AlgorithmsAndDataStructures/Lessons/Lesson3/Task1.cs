@@ -4,16 +4,17 @@ using System.Text;
 using System.Diagnostics;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Attributes;
+using System.Reflection;
 
 namespace GB.AlgorithmsAndDataStructures.Lesson3
 {
     public class Task1 : ILesson, IBenchmark
     {
-        string ILesson.Name => "Task3.1";
+        public string Name => "Task3.1";
 
-        string ILesson.Description => "Подсчет расстояния между точками";
+        public string Description => "Подсчет расстояния между точками";
 
-        void ILesson.Demo()
+        public void Demo()
         {
             Console.WriteLine("Points  Class               Structure              Ratio");
 
@@ -138,7 +139,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson3
         //Реализация интерфейса для тестов
         public void MakeBenchMarkTests()
         {
-            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run();
+            BenchmarkSwitcher.FromAssembly(Assembly.GetExecutingAssembly()).Run();
             MakeBenchMarkTestClass();
             MakeBenchMarkTestStruct();
         }

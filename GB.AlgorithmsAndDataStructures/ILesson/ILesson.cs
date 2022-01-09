@@ -11,7 +11,6 @@ namespace GB.AlgorithmsAndDataStructures
     {
         string Name { get; }
         string Description { get; }
-
         void Demo();
     }
 }
