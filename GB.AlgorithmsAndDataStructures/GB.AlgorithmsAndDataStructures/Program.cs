@@ -10,7 +10,6 @@ namespace GB.AlgorithmsAndDataStructures
     {
         static void Main()
         {
-
             List<ILesson> lessons = Lesson6.UserOptions.LoadTasks();
 
             Console.WriteLine("Для запуска задания, укажите его название.");
