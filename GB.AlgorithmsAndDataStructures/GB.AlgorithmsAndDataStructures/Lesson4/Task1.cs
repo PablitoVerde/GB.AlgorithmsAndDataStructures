@@ -16,7 +16,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson4
 
         string ILesson.Description => "Реализация двоичного дерева поиска";
 
-        void ILesson.Demo()
+       void ILesson.Demo()
         {
             Console.Clear();
             Console.WriteLine("Дерево из одного элемента");
@@ -50,7 +50,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson4
 
             Console.Clear();
             Console.WriteLine("Вывод в консоль значения элемента со значением 10. Осуществляется поиск элемента по значению, потом оно же и выводится для перепроверки алгоритма");
-            Console.WriteLine(nodeTree.GetNodeByValue(10).Value);     
+            Console.WriteLine(nodeTree.GetNodeByValue(10).Value);
             Console.ReadKey();
 
             Console.Clear();
@@ -62,6 +62,11 @@ namespace GB.AlgorithmsAndDataStructures.Lesson4
             nodeTree.PrintTree();
 
             Console.ReadKey();
+        }
+
+        public void GetTree()
+        {
+            
         }
     }
 }

@@ -11,7 +11,6 @@ namespace GB.AlgorithmsAndDataStructures
     {
         static void Main()
         {
-
             // получение данных из сборки, где находятся домашние задания
             var pathToLesson = Directory.GetCurrentDirectory() + @"\Lessons.dll";
             var assembly = Assembly.LoadFile(pathToLesson);
