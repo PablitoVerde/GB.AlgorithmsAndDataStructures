@@ -7,7 +7,7 @@ namespace GB.AlgorithmsAndDataStructures
     /// <summary>
     /// Общий интерфейс урока
     /// </summary>
-    interface ILesson
+    public interface ILesson
     {
         string Name { get; }
         string Description { get; }
