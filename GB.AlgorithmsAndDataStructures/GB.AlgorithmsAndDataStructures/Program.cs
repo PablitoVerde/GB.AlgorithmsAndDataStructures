@@ -16,6 +16,22 @@ namespace GB.AlgorithmsAndDataStructures
             var pathToLesson = Directory.GetCurrentDirectory() + @"\Lessons.dll";
             var assembly = Assembly.LoadFile(pathToLesson);
             var type = assembly.GetTypes();
+            List<ILesson> listLessons = new List<ILesson>();
+
+
+            foreach (var t in type)
+            {
+
+                if (t.Name.Contains("Task") && t.IsClass)
+                {
+                    var obj = Activator.CreateInstance(t);
+
+                    ILesson lesson = obj as ILesson;
+
+                    listLessons.Add(lesson);
+
+                }
+            }
 
             bool showmenu = true;
 
@@ -26,38 +42,17 @@ namespace GB.AlgorithmsAndDataStructures
                 Console.WriteLine("Для запуска задания, укажите его название.");
 
                 // Получение из сборки только классов, где имеется в названии слово Task (именно в данных классах реализованы домашние задания)
-                foreach (var t in type)
+                foreach (ILesson l in listLessons)
                 {
-
-                    if (t.Name.Contains("Task") && t.IsClass)
-                    {
-                        var obj = Activator.CreateInstance(t);
-                        var objName = t.GetProperty("Name", BindingFlags.Instance | BindingFlags.Public);
-                        var objDescription = t.GetProperty("Description", BindingFlags.Instance | BindingFlags.Public);
-
-                        Console.WriteLine($"{objName.GetValue(obj)} | {objDescription.GetValue(obj)}");
-                    }
+                    Console.WriteLine($"{l.Name} | {l.Description}");
                 }
 
                 // получение команды от пользователя
                 string userCommand = Console.ReadLine();
 
-                //проход списка сущностей из сборки на предмет поиска нужного класса и вызов демонстрационного метода
-                foreach (var t in type)
-                {
+                ILesson userChoiceTask = listLessons.Find(l => l.Name.ToUpper().Contains(userCommand.ToUpper()));
 
-                    if (t.Name.Contains("Task") && t.IsClass)
-                    {
-                        var obj = Activator.CreateInstance(t);
-
-                        if (t.GetProperty("Name").GetValue(obj).ToString().ToUpper() == userCommand.ToUpper())
-                        {
-                            var demoMethod = t.GetMethod("Demo");
-                            demoMethod.Invoke(obj, null);
-                            break;
-                        }
-                    }
-                }
+                userChoiceTask.Demo();
 
                 Console.WriteLine("Хотите продолжить? Y/N");
                 string userChoice = Console.ReadLine();
