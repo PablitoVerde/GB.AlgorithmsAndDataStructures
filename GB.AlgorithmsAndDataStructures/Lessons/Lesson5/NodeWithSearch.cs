@@ -8,18 +8,19 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
     public class NodeWithSearch<T> : Lesson4.Node<T>
     {
         /// <summary>
-        /// Статический метод поиска узла по значению в ширину. Возвращается найденный узел
+        /// Метод поиска узла по значению в ширину. Возвращается найденный узел
         /// </summary>
-        /// <param Узел дерева="nodeTree"></param>
         /// <param Искомое значение в формате int="searchValue"></param>
         /// <returns></returns>
-        static public Lesson4.Node<int> searchBFS(Lesson4.Node<int> nodeTree, int searchValue)
+        public Lesson4.Node<T> searchBFS(int searchValue)
         {
-            Lesson4.Node<int> result = null;
+            Lesson4.Node<T> result = null;
 
-            var queue = new Queue<Lesson4.Node<int>>();
+            Lesson4.Node<T> rootNode = this.GetRoot();
 
-            queue.Enqueue(nodeTree);
+            var queue = new Queue<Lesson4.Node<T>>();
+
+            queue.Enqueue(rootNode);
 
             while (queue.Count != 0)
             {
@@ -27,7 +28,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
 
                 if (nodeValue != null)
                 {
-                    if (nodeValue.Value == searchValue)
+                    if (Convert.ToInt32(nodeValue.Value) == searchValue)
                     {
                         Console.WriteLine($"Значение найдено: {searchValue}");
                         result = nodeValue;
@@ -37,11 +38,11 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
                     {
                         Console.WriteLine($"Проверенное значение дерева {nodeValue.Value}");
 
-                        if (nodeTree.Left != null)
+                        if (nodeValue.Left != null)
                         {
                             queue.Enqueue(nodeValue.Left);
                         }
-                        if (nodeTree.Right != null)
+                        if (nodeValue.Right != null)
                         {
                             queue.Enqueue(nodeValue.Right);
                         }
@@ -53,18 +54,19 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
         }
 
         /// <summary>
-        /// Статический метод поиска узла по значению в глубину. Возвращается найденный узел
+        /// Метод поиска узла по значению в глубину. Возвращается найденный узел
         /// </summary>
-        /// <param name="nodeTree"></param>
         /// <param name="searchValue"></param>
         /// <returns></returns>
-        static public Lesson4.Node<int> searchDFS(Lesson4.Node<int> nodeTree, int searchValue)
+        public Lesson4.Node<T> searchDFS(int searchValue)
         {
-            Lesson4.Node<int> result = null;
+            Lesson4.Node<T> result = null;
 
-            var stack = new Stack<Lesson4.Node<int>>();
+            Lesson4.Node<T> rootNode = this.GetRoot();
 
-            stack.Push(nodeTree);
+            var stack = new Stack<Lesson4.Node<T>>();
+
+            stack.Push(rootNode);
 
             while (stack.Count != 0)
             {
@@ -72,7 +74,7 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
 
                 if (nodeValue != null)
                 {
-                    if (nodeValue.Value == searchValue)
+                    if (Convert.ToInt32(nodeValue.Value) == searchValue)
                     {
                         Console.WriteLine($"Значение найдено: {searchValue}");
                         result = nodeValue;
@@ -82,11 +84,11 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
                     {
                         Console.WriteLine($"Проверенное значение дерева {nodeValue.Value}");
 
-                        if (nodeTree.Left != null)
+                        if (nodeValue.Left != null)
                         {
                             stack.Push(nodeValue.Left);
                         }
-                        if (nodeTree.Right != null)
+                        if (nodeValue.Right != null)
                         {
                             stack.Push(nodeValue.Right);
                         }

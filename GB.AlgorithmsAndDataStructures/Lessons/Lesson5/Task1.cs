@@ -46,14 +46,12 @@ namespace GB.AlgorithmsAndDataStructures.Lesson5
             //Поиск узла дерева по значению в ширину, получение узла, вывод значения узла на экран.
             //Для проверки работоспособности метода выводятся все пройденные значения по порядку
             Console.WriteLine("Поиск в ширину");
-            Lesson4.Node<int> searchedValueBFS = NodeWithSearch<int>.searchBFS(nodeTree, 45);
-            Console.WriteLine($"Значение полученного узла дерева - {searchedValueBFS.Value}");
+            Console.WriteLine($"Значение полученного узла дерева - {nodeTree.searchBFS(45).Value}");
 
             //Поиск узла дерева по значению в глубину, получение узла, вывод значения узла на экран.
             //Для проверки работоспособности метода выводятся все пройденные значения по порядку
             Console.WriteLine("Поиск в глубину");
-            Lesson4.Node<int> searchedValueDFS = NodeWithSearch<int>.searchDFS(nodeTree, 45);
-            Console.WriteLine($"Значение полученного узла дерева - {searchedValueDFS.Value}");
+            Console.WriteLine($"Значение полученного узла дерева - {nodeTree.searchDFS(45).Value}");
         }
     }
 }
